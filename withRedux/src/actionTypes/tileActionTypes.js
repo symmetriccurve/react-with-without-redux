@@ -1,0 +1,1 @@
+export const CLICK_ON_TILE = 'CLICK_ON_TILE'

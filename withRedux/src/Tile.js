@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
 import colors from './colors.json'
 
-class Child extends Component {
-  static getDerivedStateFromProps(nextProps, prevState){
-    console.log(nextProps)
-  }
+class Tile extends Component {
+  
   render() {
-    console.log("Props",this.props.clickCount)
     return (
       <div 
         style={{
@@ -28,4 +24,4 @@ class Child extends Component {
   }
 }
 
-export default Child;
+export default Tile;

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 import colors from './colors.json'
 
-class Child extends Component {
+class Tile extends Component {
   state = {
       clickCount: 0
   }
@@ -27,4 +26,4 @@ class Child extends Component {
   }
 }
 
-export default Child;
+export default Tile;
