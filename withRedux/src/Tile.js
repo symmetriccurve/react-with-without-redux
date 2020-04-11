@@ -1,24 +1,17 @@
-import React, { Component } from 'react';
-import colors from './colors.json'
+import React, { Component } from "react";
+import colors from "./utilities/colors.json";
 
 class Tile extends Component {
-  
   render() {
     return (
-      <div 
+      <div
         style={{
-            display:'flex',
-            alignItems:'center',
-            justifyContent:'center',
-            height:'100px',
-            width:'100px',
-            margin:'10px',
-            userSelect:'none',
-            cursor:'pointer',
-            backgroundColor:colors[this.props.clickCount]
+          backgroundColor: colors[this.props.clickCount],
         }}
-        onClick={()=>this.props.onChildClick()}>
-        <span style={{fontSize:'30px',color:'white',fontWeight:'bold'}}>{this.props.clickCount} </span>
+        className="tile"
+        onClick={() => this.props.onChildClick()}
+      >
+        <span className="tile__content">{this.props.clickCount}</span>
       </div>
     );
   }

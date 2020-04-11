@@ -1,37 +1,39 @@
-import React, { Component } from 'react';
-import Tile from './Tile'
+import React, { Component } from "react";
+import Tile from "./Tile";
 import { connect } from "react-redux";
-import { CLICK_ON_TILE } from './actionTypes/tileActionTypes';
-import { clickOnTile } from './actions/tileActions';
+import { increaseClickCountOnTileById } from "./actions/tileActions";
 
 class Wall extends Component {
-
   render() {
+    let tilesViews = [];
+    const tiles = this.props.tiles;
 
-    let tiles = []
-    for(let i = 0; i<100;i++){
-      tiles.push(<Tile onChildClick={()=>this.props.onChildClick(i)} clickCount={this.props[i]} key={i}/>)
-    }
+    Object.keys(tiles).forEach((eachKey) => {
+      const tileId = tiles[eachKey].tileId;
+      const clickCount = tiles[eachKey].clickCount;
 
+      tilesViews.push(
+        <Tile
+          onChildClick={() => this.props.onChildClick(tileId)}
+          clickCount={clickCount}
+          key={tileId}
+        />
+      );
+    });
 
-    return (
-      <div style={{display:'flex',flexWrap:'wrap'}}>
-       {tiles}
-      </div>
-    );
+    return <div className="wall">{tilesViews}</div>;
   }
 }
 
-const mapStateToProps = state => {
-  return state;
-};
-
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = (state) => {
   return {
-    onChildClick: (tileNumber) => dispatch(clickOnTile(tileNumber))
+    tiles: state.tiles,
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Wall);
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onChildClick: (tileId) => dispatch(increaseClickCountOnTileById(tileId)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Wall);

@@ -1,0 +1,21 @@
+.wall {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.tile__content {
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+}

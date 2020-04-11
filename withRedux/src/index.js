@@ -1,19 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import Wall from './Wall';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles.css";
+import Wall from "./Wall";
 
 //Redux
-import reducer from './store/reducer';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-
-const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({ trace: true }));
+import { Provider } from "react-redux";
+import store from "./store";
 
 ReactDOM.render(
-        <Provider store={store}>
-            <Wall />
-        </Provider>, 
-        document.getElementById('root')
+  <Provider store={store}>
+    <Wall />
+  </Provider>,
+  document.getElementById("root")
 );
-
